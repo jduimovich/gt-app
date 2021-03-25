@@ -1,2 +1,2 @@
 bases:
-- ..\services\haproxy
+- ../services/haproxy
