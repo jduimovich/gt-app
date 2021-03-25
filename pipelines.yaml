@@ -1,0 +1,29 @@
+config:
+  argocd:
+    namespace: openshift-gitops
+  pipelines:
+    name: cicd
+environments:
+- apps:
+  - name: app-haproxy
+    services:
+    - name: haproxy
+      pipelines:
+        integration:
+          bindings:
+          - dev-app-haproxy-haproxy-binding
+          - github-push-binding
+      source_url: https://github.com/jduimovich/haproxy.git
+      webhook:
+        secret:
+          name: webhook-secret-dev-haproxy
+          namespace: cicd
+  name: dev
+  pipelines:
+    integration:
+      bindings:
+      - github-push-binding
+      template: app-ci-template
+- name: stage
+gitops_url: https://github.com/jduimovich/gt-app.git
+version: 1
