@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: fibs-service
-    app.kubernetes.io/part-of: app-frontend
+    app.kubernetes.io/part-of: fib-service
   name: fib-go-deployment
   namespace: dev
 spec:
@@ -12,14 +12,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: fibs-service
-      app.kubernetes.io/part-of: app-frontend
+      app.kubernetes.io/part-of: fib-service
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: fibs-service
-        app.kubernetes.io/part-of: app-frontend
+        app.kubernetes.io/part-of: fib-service
     spec:
       containers:
       - image: jduimovich/fib-go:latest
