@@ -3,7 +3,7 @@ kind: Service
 metadata: 
   labels:
     app.kubernetes.io/name: frontend-service
-    app.kubernetes.io/part-of: app-frontend
+    app.kubernetes.io/part-of: app-graphtuitous
   name: frontend-service
   namespace: dev
 spec:
@@ -14,6 +14,6 @@ spec:
     targetPort: 8080
   selector:
     app.kubernetes.io/name: frontend
-    app.kubernetes.io/part-of: app-frontend 
+    app.kubernetes.io/part-of: app-graphtuitous
 status:
   loadBalancer: {}
