@@ -28,6 +28,12 @@ spec:
         name: haproxy
         ports:
         - containerPort: 8080
-        resources: {}
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "128Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
       serviceAccountName: default
 status: {}
