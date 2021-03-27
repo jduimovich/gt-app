@@ -5,13 +5,13 @@ config:
     name: cicd
 environments:
 - apps:
-  - name: app-haproxy
+  - name: app-graphtuitous
     services:
     - name: haproxy
       pipelines:
         integration:
           bindings:
-          - dev-app-haproxy-haproxy-binding
+          - dev-app-graphtuitous-haproxy-binding
           - github-push-binding
       source_url: https://github.com/jduimovich/haproxy.git
       webhook:

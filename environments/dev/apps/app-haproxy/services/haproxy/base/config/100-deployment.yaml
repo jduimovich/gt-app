@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: haproxy
-    app.kubernetes.io/part-of: app-haproxy
+    app.kubernetes.io/part-of: app-graphtuitous
     app.openshift.io/runtime : haproxy 
   name: haproxy
   namespace: dev
@@ -13,14 +13,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: haproxy
-      app.kubernetes.io/part-of: app-haproxy
+      app.kubernetes.io/part-of: app-graphtuitous
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: haproxy
-        app.kubernetes.io/part-of: app-haproxy
+        app.kubernetes.io/part-of: app-graphtuitous
     spec:
       containers:
       - image: jduimovich/haproxy:latest
