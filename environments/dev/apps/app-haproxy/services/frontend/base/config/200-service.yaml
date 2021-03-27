@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: frontend-service
     app.kubernetes.io/part-of: app-frontend
-  name: frontend
+  name: frontend-service
   namespace: dev
 spec:
   ports:
