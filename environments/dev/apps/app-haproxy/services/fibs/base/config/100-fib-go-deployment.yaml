@@ -20,13 +20,36 @@ spec:
       labels:
         app.kubernetes.io/name: fibs-service
         app.kubernetes.io/part-of: fib-service
-    spec:
+    spec:      
+      securityContext:
+        runAsNonRoot: true
       containers:
       - image: jduimovich/fib-go:latest
         imagePullPolicy: Always
         name: fib-go-deployment
         ports:
         - containerPort: 8080
-        resources: {}
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "48Mi"
+          requests:
+            cpu: "100m"
+            memory: "32Mi"
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        livenessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          httpGet:
+            path: /fib
+            port: 8080
+        securityContext:
+          capabilities:
+            drop:
+              - all
       serviceAccountName: default
 status: {}
