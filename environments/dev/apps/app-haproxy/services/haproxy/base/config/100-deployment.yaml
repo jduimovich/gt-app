@@ -35,5 +35,20 @@ spec:
           requests:
             cpu: "100m"
             memory: "128Mi"
+        readinessProbe:
+          tcpSocket:
+             port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          httpGet:
+            path: /health
+            port: 8080
+        securityContext:
+          capabilities:
+            drop:
+              - all
       serviceAccountName: default
 status: {}
