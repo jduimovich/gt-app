@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: fibs-service
     app.kubernetes.io/part-of: app-frontend
-  name: fibs-service
+  name: fib-go-deployment
   namespace: dev
 spec:
   replicas: 1
