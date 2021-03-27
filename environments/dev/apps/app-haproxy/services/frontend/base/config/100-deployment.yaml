@@ -26,7 +26,13 @@ spec:
         imagePullPolicy: Always
         name: frontend
         ports:
-        - containerPort: 8080
-        resources: {}
+        - containerPort: 8080 
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "48Mi"
+          requests:
+            cpu: "100m"
+            memory: "48Mi"
       serviceAccountName: default
 status: {}
