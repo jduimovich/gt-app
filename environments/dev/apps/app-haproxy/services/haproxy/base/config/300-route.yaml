@@ -1,7 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
-metadata:
-  creationTimestamp: null
+metadata: 
   name: haproxy
   namespace: dev
 spec:
