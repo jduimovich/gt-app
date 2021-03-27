@@ -6,6 +6,9 @@ metadata:
     app.kubernetes.io/name: haproxy
     app.kubernetes.io/part-of: app-graphtuitous
     app.openshift.io/runtime : haproxy 
+  annotations: 
+    app.openshift.io/connects-to: '[ "frontend",  "fib-go-deployment",  "fib-node-deployment",  "fib-quarkus-deployment"]'   
+    container.apparmor.security.beta.kubernetes.io/haproxy-deploy: runtime/default 
   name: haproxy
   namespace: dev
 spec:
