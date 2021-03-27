@@ -1,5 +1,3 @@
 resources:
 - 100-fib-go-deployment.yaml
-- 100-fib-quarkus-deployment.yaml
-- 100-fib-node-deployment.yaml 
 - 200-service.yaml 
