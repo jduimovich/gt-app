@@ -4,7 +4,11 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: haproxy
-    app.kubernetes.io/part-of: app-haproxy
+    app.kubernetes.io/part-of: app-graphtuitous
+    app.openshift.io/runtime : haproxy 
+  annotations: 
+    app.openshift.io/connects-to: '[ "frontend",  "fib-go-deployment",  "fib-node-deployment",  "fib-quarkus-deployment"]'   
+    container.apparmor.security.beta.kubernetes.io/haproxy-deploy: runtime/default 
   name: haproxy
   namespace: dev
 spec:
@@ -12,14 +16,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: haproxy
-      app.kubernetes.io/part-of: app-haproxy
+      app.kubernetes.io/part-of: app-graphtuitous
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: haproxy
-        app.kubernetes.io/part-of: app-haproxy
+        app.kubernetes.io/part-of: app-graphtuitous
     spec:
       containers:
       - image: jduimovich/haproxy:latest
@@ -27,6 +31,27 @@ spec:
         name: haproxy
         ports:
         - containerPort: 8080
-        resources: {}
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "128Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        readinessProbe:
+          tcpSocket:
+             port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          httpGet:
+            path: /health
+            port: 8080
+        securityContext:
+          capabilities:
+            drop:
+              - all
       serviceAccountName: default
 status: {}

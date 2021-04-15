@@ -1,14 +1,16 @@
 apiVersion: route.openshift.io/v1
 kind: Route
-metadata:
-  creationTimestamp: null
+metadata: 
   name: haproxy
   namespace: dev
 spec:
   port:
     targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
   to:
     kind: Service
     name: haproxy
     weight: 100
-  wildcardPolicy: None
+  wildcardPolicy: None 

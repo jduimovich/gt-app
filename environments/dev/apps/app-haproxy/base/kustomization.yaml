@@ -1,2 +1,5 @@
 bases:
 - ../services/haproxy
+- ../services/frontend
+- ../services/fibs
+

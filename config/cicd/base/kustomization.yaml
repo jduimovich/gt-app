@@ -14,7 +14,7 @@ resources:
 - 04-tasks/deploy-from-source-task.yaml
 - 05-pipelines/app-ci-pipeline.yaml
 - 05-pipelines/ci-dryrun-from-push-pipeline.yaml
-- 06-bindings/dev-app-haproxy-haproxy-binding.yaml
+- 06-bindings/dev-app-graphtuitous-haproxy-binding.yaml
 - 06-bindings/github-push-binding.yaml
 - 07-templates/app-ci-build-from-push-template.yaml
 - 07-templates/ci-dryrun-from-push-template.yaml
