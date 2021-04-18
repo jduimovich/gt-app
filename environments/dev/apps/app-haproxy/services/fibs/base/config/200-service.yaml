@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: fibs-service
-    app.kubernetes.io/part-of: fib-service
+    app.kubernetes.io/part-of: app-graphtuitous
   name: fibs-service
   namespace: dev
 spec:
@@ -15,6 +15,6 @@ spec:
     targetPort: 8080
   selector:
     app.kubernetes.io/name: fibs-service
-    app.kubernetes.io/part-of: fib-service
+    app.kubernetes.io/part-of: app-graphtuitous
 status:
   loadBalancer: {}
