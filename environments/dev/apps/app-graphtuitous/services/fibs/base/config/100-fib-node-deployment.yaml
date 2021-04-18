@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  creationTimestamp: null
+metadata: 
   labels:
     app.kubernetes.io/name: fibs-service
     app.kubernetes.io/part-of: app-graphtuitous
