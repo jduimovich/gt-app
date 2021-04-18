@@ -1,6 +1,6 @@
 resources:
 - argo-app.yaml
 - cicd-app.yaml
-- dev-app-graphtuitous-app.yaml
+- dev-app-haproxy-app.yaml
 - dev-env-app.yaml
 - stage-env-app.yaml

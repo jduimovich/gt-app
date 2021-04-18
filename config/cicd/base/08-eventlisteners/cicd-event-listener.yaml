@@ -25,7 +25,7 @@ spec:
     template:
       name: ci-dryrun-from-push-template
   - bindings:
-    - ref: dev-app-graphtuitous-haproxy-binding
+    - ref: dev-app-haproxy-haproxy-binding
     - ref: github-push-binding
     interceptors:
     - github:

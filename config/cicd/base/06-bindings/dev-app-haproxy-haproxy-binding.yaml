@@ -2,7 +2,7 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
   creationTimestamp: null
-  name: dev-app-graphtuitous-haproxy-binding
+  name: dev-app-haproxy-haproxy-binding
   namespace: cicd
 spec:
   params:
