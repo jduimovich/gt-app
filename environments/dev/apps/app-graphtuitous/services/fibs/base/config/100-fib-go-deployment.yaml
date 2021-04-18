@@ -4,35 +4,35 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: fibs-service
-    app.kubernetes.io/part-of: app-haproxy
-  name: fib-node-deployment
+    app.kubernetes.io/part-of: app-graphtuitous
+  name: fib-go-deployment
   namespace: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: fibs-service
-      app.kubernetes.io/part-of: app-haproxy
+      app.kubernetes.io/part-of: app-graphtuitous
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: fibs-service
-        app.kubernetes.io/part-of: app-haproxy
+        app.kubernetes.io/part-of: app-graphtuitous
     spec:      
       securityContext:
         runAsNonRoot: true
       containers:
-      - image: jduimovich/fib-node:latest
+      - image: jduimovich/fib-go:latest
         imagePullPolicy: Always
-        name: fib-node-deployment
+        name: fib-go-deployment
         ports:
         - containerPort: 8080
         resources:
           limits:
             cpu: "200m"
-            memory: "64Mi"
+            memory: "48Mi"
           requests:
             cpu: "100m"
             memory: "32Mi"

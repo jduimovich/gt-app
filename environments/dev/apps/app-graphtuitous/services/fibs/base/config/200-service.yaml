@@ -3,9 +3,9 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app.kubernetes.io/name: haproxy
-    app.kubernetes.io/part-of: app-haproxy
-  name: haproxy
+    app.kubernetes.io/name: fibs-service
+    app.kubernetes.io/part-of: app-graphtuitous
+  name: fibs-service
   namespace: dev
 spec:
   ports:
@@ -14,7 +14,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app.kubernetes.io/name: haproxy
-    app.kubernetes.io/part-of: app-haproxy
+    app.kubernetes.io/name: fibs-service
+    app.kubernetes.io/part-of: app-graphtuitous
 status:
   loadBalancer: {}
