@@ -1,5 +1,15 @@
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
 - 100-fib-go-deployment.yaml
 - 100-fib-node-deployment.yaml
 - 100-fib-quarkus-deployment.yaml
 - 200-service.yaml 
+replicas:
+- name: fib-quarkus-deployment
+  count: 1
+- name: fib-node-deployment
+  count: 2
+- name: fib-go-deployment
+  count: 3
